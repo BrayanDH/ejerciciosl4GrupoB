@@ -19,8 +19,7 @@ if(isset($_POST['crear-registro'])){
     }else{
         $query = "INSERT INTO usuarios(nombre, apellidos, telefono, email)VALUES('$nombre', '$apellidos', '$telefono', '$email')";
         
-        if(mysqli_query($con, $query)){
-            $url = "error" . mysqli_error($con);
+        if(!mysqli_query($con, $query)){
             $error = "Error, no se pudo crear el registro";
         }else{
             $mensaje = "Registro creado correctamente";
@@ -30,9 +29,6 @@ if(isset($_POST['crear-registro'])){
     }
 }
 ?>
-
-
-
 
 <!doctype html>
 <html lang="es">
