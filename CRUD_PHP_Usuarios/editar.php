@@ -30,9 +30,8 @@ if(isset($_POST['editarRegistro'])){
         $query = "UPDATE usuarios SET nombre='$nombre', apellidos='$apellidos', telefono='$telefono', email='$email' 
                   WHERE id='$idRegistro'";
         
-        if(mysqli_query($con, $query)){
-            die("Error: " . mysqli_error($con));
-            $error = "Error, no se pudo crear el registro";
+        if(!mysqli_query($con, $query)){
+            $error = "Error, no se pudo actualizar el registro";
         }else{
             $mensaje = "Registro editado correctamente";
             header("Location: index.php?mensaje=".urlencode($mensaje));
