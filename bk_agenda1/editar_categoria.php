@@ -23,7 +23,7 @@ if (isset($_POST["editarCategoria"])) {
     // Validar si está vacío
     if (empty($nombre)) {
         $error = "Error, algunos campos obligatorios están vacíos";
-        header('Location: editor_categoria.php?error=' . $error);
+        header('Location: editar_categoria.php?error=' . $error);
         exit();
     } else {
         // Si entra por aquí es porque se puede ingresar el nuevo registro
@@ -41,7 +41,7 @@ if (isset($_POST["editarCategoria"])) {
             exit();
         } else {
             $error = "Error, no se pudo editar el registro";
-            header('Location: editor_categoria.php?error=' . $error);
+            header('Location: editar_categoria.php?error=' . $error);
             exit();
         }
     }

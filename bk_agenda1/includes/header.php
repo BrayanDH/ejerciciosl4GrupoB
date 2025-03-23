@@ -47,7 +47,7 @@ try {
                             Administración
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="categories.php">Categories</a></li>
+                            <li><a class="dropdown-item" href="categorias.php">Categorías</a></li>
                             <li><a class="dropdown-item" href="contactos.php">Contactos</a></li>
                         </ul>
                     </li>
@@ -59,5 +59,3 @@ try {
     <div class="container mt-5 caja">
         <!-- Aquí puedes agregar más contenido HTML o PHP -->
     </div>
-</body>
-</html>
