@@ -26,6 +26,17 @@ $categories = $stmt->fetchAll(PDO::FETCH_OBJ);
 </div>
 
 <div class="row">
+    <div class="col-sm-12">
+        <?php if(isset($_GET["error"])) : ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong><?php echo $_GET["error"]; ?></strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php endif; ?>
+    </div>
+</div>
+
+<div class="row">
     <div class="col-sm-6">
         <h3>Lista de Categorías</h3>
     </div>
@@ -53,6 +64,7 @@ $categories = $stmt->fetchAll(PDO::FETCH_OBJ);
                         <td><?php echo $fila->fecha_creacion; ?></td>
                         <td>
                             <a href="editar_categoria.php?id=<?php echo $fila->id; ?>" class="btn btn-warning"><i class="bi bi-pencil-fill"></i> Editar</a>
+                            <a href="borrar_categoria.php?id=<?php echo $fila->id; ?>" class="btn btn-danger"><i class="bi bi-x-circle-fill"></i> Borrar</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
