@@ -5,10 +5,10 @@
 // Configurar zona horaria
 date_default_timezone_set('America/Bogota');
 
-// Mostrar registros
+// Mostrar registros - Corrigiendo nombre de tabla de "contacts" a "contactos"
 $query = "SELECT cat.nombre AS nombrecategoria, con.id AS id, con.nombre AS nombre, 
           con.apellido AS apellido, con.telefono AS telefono, con.email AS email, con.categoria AS categoria_id 
-          FROM categories cat INNER JOIN contacts con ON con.categoria = cat.id";
+          FROM categories cat INNER JOIN contactos con ON con.categoria = cat.id";
 $stmt = $conn->query($query);
 
 $contactos = $stmt->fetchAll(PDO::FETCH_OBJ);

@@ -1,15 +1,21 @@
 <?php
-include_once("conexion_postgress.php");
+// Incluir el archivo de conexión (asegúrate de que la ruta sea correcta)
+include_once dirname(__FILE__) . '/../conexion.php';
 
-// Configuramos zona horaria
-date_default_timezone_set('America/Bogota');
+// Si no existe la conexión, mostrar error
+if (!isset($conn)) {
+    die("Error: No se ha establecido la conexión a la base de datos.");
+}
 
-// Mostrar registros
-$query = "SELECT * FROM categories";
-$stmt = $conn->query($query);
-$categories = $stmt->fetchAll(PDO::FETCH_OBJ);
-
-// var_dump($categories); // Comentado para evitar salida no deseada
+// Consulta para el menú de categorías (usa un try-catch para evitar errores si la tabla no existe aún)
+$categoriesMenu = [];
+try {
+    $query = "SELECT * FROM categories";
+    $stmt = $conn->query($query);
+    $categoriesMenu = $stmt->fetchAll(PDO::FETCH_OBJ);
+} catch (Exception $e) {
+    // No mostrar categorías si hay error
+}
 ?>
 
 <!doctype html>
